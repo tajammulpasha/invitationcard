@@ -1,1 +1,307 @@
-# invitationcard
+# <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>1500th Milad-un-Nabi ﷺ — Invitation</title>
+  <meta name="description" content="Invitation for 1500th Milad-un-Nabi ﷺ — Qasida e Burda & Mehfil-e-Naat. Organized by Alhaj Mohammed Aquil Pasha Quadri Chishti Sahab & Sons." />
+  <style>
+    :root{
+      --gold:#ffd700;
+      --sky1:#060b1a;
+      --sky2:#0c1533;
+      --panel:rgba(12,21,51,0.65);
+      --text:#eef3ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:"Segoe UI",system-ui,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 50% -10%, #1c2656 0%, var(--sky2) 40%, var(--sky1) 100%);
+      overflow-x:hidden;
+    }
+
+    /* Stars */
+    .stars, .stars:before, .stars:after{
+      content:""; position:fixed; inset:0; pointer-events:none;
+      background-repeat:repeat;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.9) 99%, transparent),
+        radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,0.7) 99%, transparent),
+        radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.8) 99%, transparent),
+        radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.8) 99%, transparent);
+      animation: twinkle 4s infinite ease-in-out;
+    }
+    .stars:before{animation-duration:6s; opacity:.6}
+    .stars:after{animation-duration:9s; opacity:.4}
+    @keyframes twinkle{0%,100%{opacity:.8}50%{opacity:.3}}
+
+    .frame{ position:relative; min-height:100dvh; padding:28px 20px 180px; display:flex; flex-direction:column; align-items:center; gap:18px; isolation:isolate; }
+    .frame:before{
+      content:""; position:fixed; inset:14px; pointer-events:none; border-radius:20px;
+      padding:2px; background:linear-gradient(135deg, rgba(255,215,0,.9), rgba(255,255,255,.7), rgba(255,215,0,.9));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+    }
+
+    header{ display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:12px; z-index:2; }
+    .seal{ width:165px; height:165px; object-fit:contain; border-radius:50%;
+      filter: drop-shadow(0 0 10px rgba(255,215,0,.6)) drop-shadow(0 0 25px rgba(255,215,0,.25));
+      animation: fadeIn 1.6s ease both, gentleGlow 3.5s ease-in-out infinite;
+    }
+    @keyframes gentleGlow{50%{filter: drop-shadow(0 0 16px rgba(255,215,0,.9)) drop-shadow(0 0 36px rgba(255,215,0,.35));}}
+    h1{ margin:10px 0 6px; font-weight:700; color:var(--gold); text-shadow:0 0 10px rgba(255,215,0,.25);
+      animation: slideDown .9s ease both .3s; font-size: clamp(1.4rem, 2.2vw + 1rem, 2.2rem);}
+    .bismillah{ font-size:1rem; opacity:.95; color:#d7e0ff; margin-top:4px }
+    .panel{ width:min(880px,92%); background:var(--panel); border:1px solid rgba(255,255,255,.12);
+      border-radius:18px; padding:18px; box-shadow:0 10px 30px rgba(0,0,0,.35); backdrop-filter: blur(6px); z-index:2}
+    .grid{ display:grid; gap:14px; grid-template-columns:1fr; align-items:start; }
+    @media (min-width:820px){ .grid{ grid-template-columns:1.1fr .9fr } }
+    .section-title{ color:var(--gold); margin:0 0 8px; font-size:1.05rem }
+    .kv{ margin:0.25rem 0 }
+    .lang-toggle{ display:flex; gap:10px; margin:8px 0 12px }
+    .btn{ appearance:none; border:none; cursor:pointer; padding:10px 16px; border-radius:10px; font-weight:600;
+      background:linear-gradient(180deg,#fff,#e7e7e7); color:#1d233b; box-shadow:0 6px 14px rgba(0,0,0,.2); }
+    .btn.secondary{ background:linear-gradient(180deg,#1b265e,#0e1a45); color:#e8eeff; border:1px solid rgba(255,255,255,.15) }
+    .countdown{ color:var(--gold); font-size: clamp(1rem, .6rem + 1.5vw, 1.4rem); text-align:center; padding:10px 0 }
+    .contacts{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center }
+    .contact-btn{ text-decoration:none; font-weight:700; padding:10px 16px; border-radius:10px; border:1px solid rgba(255,255,255,.15);
+      background:linear-gradient(180deg,#143a2d,#0e2a21); color:#e7fff7; box-shadow:0 6px 14px rgba(0,0,0,.35) }
+    footer{ width:100%; text-align:center; color:#c9d0ff; opacity:.95; font-size:.95rem; position:relative; z-index:2; margin-top:12px; padding-bottom:8px }
+    .mosque-wrap{ position:fixed; inset:auto 0 0 0; height:160px; z-index:0; pointer-events:none }
+    .mosque{ width:100%; height:100%; filter: drop-shadow(0 0 24px rgba(173,216,230,.3)); opacity:.85; animation: mosqueGlow 6s ease-in-out infinite; }
+    @keyframes mosqueGlow{50%{filter: drop-shadow(0 0 36px rgba(173,216,230,.55)); opacity:.95}}
+    .flowers{ position:fixed; inset:0; pointer-events:none }
+    .flower{ position:absolute; width:90px; opacity:.18; filter:blur(.2px) drop-shadow(0 0 6px rgba(255,215,0,.25)); animation: floatY 9s ease-in-out infinite }
+    .flower.f1{ top:60px; left:18px; animation-delay:.2s }
+    .flower.f2{ top:120px; right:22px; animation-delay:1.2s }
+    .flower.f3{ bottom:220px; left:30px; animation-delay:2s }
+    .flower.f4{ bottom:180px; right:28px; animation-delay:3s }
+    @keyframes floatY{ 0%,100%{ transform:translateY(-6px)} 50%{ transform:translateY(6px)} }
+    @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+    @keyframes slideDown{ from{ transform:translateY(-12px); opacity:0 } to{ transform:translateY(0); opacity:1 } }
+    @keyframes slideLeft{ from{ transform:translateX(24px); opacity:0 } to{ transform:translateX(0); opacity:1 } }
+    @keyframes slideRight{ from{ transform:translateX(-24px); opacity:0 } to{ transform:translateX(0); opacity:1 } }
+    .anim-left{ animation: slideRight .9s ease both .2s }
+    .anim-right{ animation: slideLeft .9s ease both .2s }
+    /* small screen tweaks */
+    @media (max-width:420px){
+      .seal{ width:130px; height:130px; }
+      .panel{ padding:14px; border-radius:14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <!-- Decorative flowers as data-URLs -->
+  <img class="flower f1" alt="" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><g fill='%23ffd700'><circle cx='60' cy='20' r='8'/><circle cx='95' cy='55' r='8'/><circle cx='60' cy='90' r='8'/><circle cx='25' cy='55' r='8'/><circle cx='60' cy='55' r='16'/></g></svg>">
+  <img class="flower f2" alt="" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><g fill='%23ffd700'><circle cx='60' cy='20' r='8'/><circle cx='95' cy='55' r='8'/><circle cx='60' cy='90' r='8'/><circle cx='25' cy='55' r='8'/><circle cx='60' cy='55' r='16'/></g></svg>">
+  <img class="flower f3" alt="" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><g fill='%23ffd700'><circle cx='60' cy='20' r='8'/><circle cx='95' cy='55' r='8'/><circle cx='60' cy='90' r='8'/><circle cx='25' cy='55' r='8'/><circle cx='60' cy='55' r='16'/></g></svg>">
+  <img class="flower f4" alt="" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><g fill='%23ffd700'><circle cx='60' cy='20' r='8'/><circle cx='95' cy='55' r='8'/><circle cx='60' cy='90' r='8'/><circle cx='25' cy='55' r='8'/><circle cx='60' cy='55' r='16'/></g></svg>">
+
+  <main class="frame" id="mainFrame" role="main">
+    <header>
+      <!-- Replace prophet-seal.png with your seal image in same folder -->
+      <img class="seal" id="sealImg" src="prophet-seal.png" alt="Seal of Prophet ﷺ">
+      <h1>1500th Milad-un-Nabi ﷺ & Qasida e Burda Shareef Mehfil</h1>
+      <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+      <div style="color:#cbd3ff; margin-top:6px; font-size:0.98rem;">A blessed gathering of dhikr, salawat, Qasida Burda & mehfil-e-naat</div>
+    </header>
+
+    <!-- Quran Verse 33:56 -->
+    <section class="panel anim-left" style="text-align:center;">
+      <div style="font-size:1.05rem; color:var(--gold); font-weight:700">آية مباركة (الآية 56 من سورة الأحزاب)</div>
+      <p style="font-size:1.2rem; margin:8px 0 4px; direction:rtl; font-family: 'Scheherazade', serif;">
+        إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ ۚ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا
+      </p>
+      <p style="margin:6px 0 0; color:#dfe8ff;">
+        <em>"Indeed, Allah and His angels send blessings upon the Prophet. O you who have believed, ask [Allah to confer] blessing upon him and ask [Allah to grant him] peace."</em>
+      </p>
+    </section>
+
+    <section class="panel grid anim-right" aria-labelledby="scheduleTitle">
+      <div>
+        <h3 id="scheduleTitle" class="section-title">Event Schedule</h3>
+        <p class="kv">📅 <b>Date:</b> Wednesday, 3rd September 2025</p>
+        <p class="kv">🕰 <b>Timings:</b><br>
+          After Asr – Quran Khwani<br>
+          After Maghrib – Fatiha<br>
+          After Isha – Qasida Burda Shareef<br>
+          Dinner follows after qasida burda <br>
+          12:00 AM onwards – Mehfil-e-Naat
+        </p>
+      </div>
+      <div>
+        <h3 class="section-title">Venue & Address</h3>
+        <p class="kv">Residence of <b>Alhaj Mohammed Aquil Pasha Quadri Chishti Sahab & Sons (Pasha’s Family)</b></p>
+        <p class="kv">📍 20-4-551/A, Lal Bagh Rd, Mahboob Chowk, Khilwat, Hyderabad, Telangana 500002</p>
+      </div>
+    </section>
+
+    <section class="panel anim-left" aria-live="polite">
+      <div class="lang-toggle" style="justify-content:center">
+        <button class="btn" onclick="setLang('en')">English</button>
+        <button class="btn secondary" onclick="setLang('ur')">اردو</button>
+      </div>
+      <p id="invitationText" style="margin:6px 8px 0; font-size:1.05rem;">
+        Assalamualaikum! Aap sab ko is pur-noor mehfil ki dawat di jati hai. Zaroor tashreef lai. Jazakallahu Khair.
+      </p>
+
+      <!-- Audio controls: background soft naat (muted autoplay) + main naat play on click -->
+      <div style="display:flex; gap:10px; justify-content:center; align-items:center; margin-top:12px; flex-wrap:wrap;">
+        <button id="playBtn" class="btn" onclick="toggleMainNaat()">▶ Play Jashn-e-Wiladat (Owais Raza Qadri)</button>
+        <button id="bgMuteBtn" class="btn secondary" onclick="toggleBgMute()">🔈 Unmute Background</button>
+
+        <!-- WhatsApp share -->
+        <a id="waShare" class="btn" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+
+        <!-- QR code image linking to Google Maps search (generated by script) -->
+        <a id="qrLink" class="btn secondary" href="#" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:8px;">
+          📍 Venue QR
+          
+          <!-- <img id="qrImg" src="vqr.png" alt="QR" style="width:48px; height:48px; border-radius:6px; border:1px solid rgba(255,255,255,.08); background:#fff;"/> -->
+        </a>
+      </div>
+    </section>
+
+    <section class="panel anim-right">
+      <div class="countdown" id="countdown">Loading countdown…</div>
+      <div class="contacts">
+        <a class="contact-btn" href="tel:+919014521477">📞 Call 9014521477</a>
+        <a class="contact-btn" href="tel:+916302601051">📞 Call 6302601051</a>
+      </div>
+    </section>
+
+    <footer>
+      Organized by <b>Alhaj Mohammed Aquil Pasha Quadri Chishti Sahab & Sons</b> — Pasha’s Family, Chowk, Khilwath, Hyderabad
+    </footer>
+  </main>
+
+  <!-- Mosque silhouette -->
+  <div class="mosque-wrap" aria-hidden="true">
+    <svg class="mosque" viewBox="0 0 1200 200" preserveAspectRatio="none" role="img" aria-hidden="true">
+      <defs>
+        <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#99c9ff" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#284a80" stop-opacity="0.0"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="200" fill="url(#grad)" opacity="0.15"/>
+      <g fill="#cfe6ff" opacity="0.9">
+        <rect x="0" y="140" width="1200" height="60"/>
+        <path d="M120 140 Q150 100 180 140 Z"/>
+        <rect x="160" y="120" width="8" height="20"/>
+        <path d="M300 140 Q360 70 420 140 Z"/>
+        <rect x="360" y="80" width="10" height="60"/>
+        <path d="M520 140 Q560 95 600 140 Z"/>
+        <rect x="580" y="110" width="10" height="30"/>
+        <path d="M700 140 Q760 60 820 140 Z"/>
+        <rect x="760" y="70" width="12" height="70"/>
+        <path d="M920 140 Q960 95 1000 140 Z"/>
+        <rect x="970" y="110" width="10" height="30"/>
+      </g>
+      <g transform="translate(90,35)">
+        <circle cx="0" cy="0" r="14" fill="#fff"/>
+        <circle cx="6" cy="-3" r="14" fill="url(#grad)"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Hidden audio elements (place naat.mp3 and soft-naat.mp3 in same folder) -->
+  <audio id="bgNaat" autoplay loop muted>
+    <source src="soft-naat.mp3" type="audio/mpeg">
+    <!-- If missing, browsers will ignore -->
+  </audio>
+
+  <audio id="mainNaat">
+    <source src="naat.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Language toggle
+    function setLang(lang){
+      const el = document.getElementById('invitationText');
+      if(lang==='ur'){
+        el.textContent = 'السلام علیکم! آپ سب کو اس پرنور محفل کی دعوت دی جاتی ہے۔ ضرور تشریف لائیے۔ جزاک اللہ خیر';
+        el.style.direction = 'rtl';
+        el.style.textAlign = 'right';
+      } else {
+        el.textContent = 'Assalamualaikum! Aap sab ko is pur-noor mehfil ki dawat di jati hai. Zaroor tashreef laiye. Jazakallahu Khair.';
+        el.style.direction = 'ltr';
+        el.style.textAlign = 'left';
+      }
+    }
+
+    // Countdown (Asia/Kolkata)
+    const eventDate = new Date('2025-09-03T18:00:00+05:30').getTime();
+    const cEl = document.getElementById('countdown');
+    function tick(){
+      const now = Date.now();
+      const dist = eventDate - now;
+      if(dist <= 0){ cEl.textContent = 'The blessed event has started!'; return; }
+      const d = Math.floor(dist/86400000);
+      const h = Math.floor((dist%86400000)/3600000);
+      const m = Math.floor((dist%3600000)/60000);
+      const s = Math.floor((dist%60000)/1000);
+      cEl.textContent = `${d}d ${h}h ${m}m ${s}s left`;
+    }
+    setInterval(tick,1000); tick();
+
+    // QR code for Google Maps search of address
+    (function setQR(){
+      const addr = encodeURIComponent('20-4-551/A, Lal Bagh Rd, Mahboob Chowk, Khilwat, Hyderabad, Telangana 500002');
+      const mapsUrl = `https://www.google.com/maps/search/${addr}`;
+      const qrSrc = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${encodeURIComponent(mapsUrl)}&choe=UTF-8`;
+      document.getElementById('qrImg').src = qrSrc;
+      document.getElementById('qrLink').href = mapsUrl;
+    })();
+
+    // WhatsApp share link (will include current page URL when hosted)
+    (function setWhatsApp(){
+      const waBtn = document.getElementById('waShare');
+      const text = encodeURIComponent('You are invited: 1500th Milad-un-Nabi ﷺ — 3 Sep 2025 at Chowk, Khilwath, Hyderabad. View invitation: ');
+      waBtn.href = `https://wa.me/?text=${text}${encodeURIComponent(window.location.href)}`;
+    })();
+
+    // Background audio controls: muted autoplay allowed by browsers
+    const bgNaat = document.getElementById('bgNaat');
+    const bgMuteBtn = document.getElementById('bgMuteBtn');
+    function toggleBgMute(){
+      if(!bgNaat) return;
+      if(bgNaat.muted){ bgNaat.muted = false; bgNaat.volume = 0.25; bgMuteBtn.textContent = '🔈 Mute Background'; }
+      else { bgNaat.muted = true; bgMuteBtn.textContent = '🔈 Unmute Background'; }
+    }
+
+    // Main naat play on button click (user interaction allows playback)
+    const mainNaat = document.getElementById('mainNaat');
+    const playBtn = document.getElementById('playBtn');
+    let mainPlaying = false;
+    function toggleMainNaat(){
+      if(!mainNaat) return;
+      if(mainPlaying){ mainNaat.pause(); playBtn.textContent = '▶ Play Jashn-e-Wiladat (Owais Raza Qadri)'; mainPlaying=false; }
+      else { mainNaat.currentTime = 0; mainNaat.play(); playBtn.textContent = '⏸ Pause Jashn-e-Wiladat'; mainPlaying=true; }
+    }
+    // Pause main naat when ended
+    mainNaat.addEventListener('ended', ()=>{ mainPlaying=false; playBtn.textContent = '▶ Play Jashn-e-Wiladat (Owais Raza Qadri)'; });
+
+    // If seal missing, show a gentle placeholder
+    const seal = document.getElementById('sealImg');
+    seal.onerror = function(){
+      this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="%23060b1a" stroke="%23ffd700" stroke-width="4"/><text x="50%" y="54%" fill="%23ffd700" font-size="20" font-family="sans-serif" text-anchor="middle">Seal</text></svg>';
+    };
+
+    // Update WhatsApp share once page fully loaded so URL is accurate
+    window.addEventListener('load', function(){
+      const waBtn = document.getElementById('waShare');
+      const text = encodeURIComponent('You are invited: 1500th Milad-un-Nabi ﷺ — 3 Sep 2025 at Chowk, Khilwath, Hyderabad. View invitation: ');
+      waBtn.href = `https://wa.me/?text=${text}${encodeURIComponent(window.location.href)}`;
+      // Ensure bgNaat volume low if unmuted
+      if(bgNaat && !bgNaat.muted){ bgNaat.volume = 0.22; bgMuteBtn.textContent='🔈 Mute Background'; }
+      else if(bgNaat){ bgMuteBtn.textContent='🔈 Unmute Background'; }
+    });
+  </script>
+</body>
+</html>
